@@ -19,8 +19,8 @@ void DisplayBoard(Board board) {
 }
 
 // Function to get player's move
-void GetPlayerMove(char token, int& row, int& col) {
-    std::cout << "Player " << token<< ", enter row and column(1 - 3) : ";
+void GetPlayerMove(int& row, int& col) {
+    std::cout << "Enter row and column(1 - 3) : ";
     std::cin >> row >> col;
     --row; // Adjusting for zero-based indexing
     --col;
@@ -34,12 +34,12 @@ int main() {
 
     while (board.GameStatus()) {
         // Display the board
-        std::cout << "Player " << currentPlayer << "'s turn:\n";
+        char token = (currentPlayer == 1) ? 'X' : 'O';
+        std::cout << "Player " << token << "'s turn:\n";
         DisplayBoard(board);
 
         // Get player's move
-        char token = (currentPlayer == 1) ? 'X' : 'O';
-        GetPlayerMove(token, row, col);
+        GetPlayerMove(row, col);
 
         // Check if the move is valid and update the board
         if (board.SetSquare(row, col, token)) {

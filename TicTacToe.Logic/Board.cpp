@@ -2,15 +2,14 @@
 #include "Board.h"
 
 
-Board::Board()
+void Board::SetBoard(char setup[3][3])
 {
-	std::vector<std::vector<char>> board1(3, std::vector<char>(3, ' '));
-	Board::grid = board1;
+	
 }
 
 char Board::GetSquare(int row, int col) const
 {
-	return grid[row][col];
+	return ' ';
 }
 
 bool Board::SetSquare(int row, int col, char player)
