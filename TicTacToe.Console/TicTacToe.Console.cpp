@@ -2,29 +2,10 @@
 #include <vector>
 #include "../TicTacToe.Logic/Board.h"
 
+void DisplayBoard(Board board);
+void GetPlayerMove(int& row, int& col);
 
-// Function to display the TicTacToe board
-void DisplayBoard(Board board) {
-    std::cout << "  1 2 3\n";
-    for (int i = 0; i < 3; ++i) {
-        std::cout << i + 1 << " ";
-        for (int j = 0; j < 3; ++j) {
-            std::cout << board.GetSquare(i, j);
-            if (j < 2) std::cout << "|";
-        }
-        std::cout << "\n";
-        if (i < 2) std::cout << "  -----\n";
-    }
-    std::cout << std::endl;
-}
 
-// Function to get player's move
-void GetPlayerMove(int& row, int& col) {
-    std::cout << "Enter row and column(1 - 3) : ";
-    std::cin >> row >> col;
-    --row; // Adjusting for zero-based indexing
-    --col;
-}
 
 int main() {
     Board board;
@@ -62,4 +43,28 @@ int main() {
     DisplayBoard(board);
 
     return 0;
+}
+
+
+// Function to display the TicTacToe board
+void DisplayBoard(Board board) {
+    std::cout << "  1 2 3\n";
+    for (int i = 0; i < 3; ++i) {
+        std::cout << i + 1 << " ";
+        for (int j = 0; j < 3; ++j) {
+            std::cout << board.GetSquare(i, j);
+            if (j < 2) std::cout << "|";
+        }
+        std::cout << "\n";
+        if (i < 2) std::cout << "  -----\n";
+    }
+    std::cout << std::endl;
+}
+
+// Function to get player's move
+void GetPlayerMove(int& row, int& col) {
+    std::cout << "Enter row and column(1 - 3) : ";
+    std::cin >> row >> col;
+    --row; // Adjusting for zero-based indexing
+    --col;
 }
